@@ -1,64 +1,114 @@
-// Particles.js Configuration
-particlesJS("particles-js", {
-    particles: {
-        number: {
-            value: 100,
-            density: {
+// Initialize Particles.js
+document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#00ff00"
+            },
+            shape: {
+                type: "char",
+                character: {
+                    value: ['1', '0'],
+                    font: "Courier New",
+                    style: "",
+                    weight: "400"
+                }
+            },
+            opacity: {
+                value: 0.8,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 16,
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 10,
+                    size_min: 8,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: false
+            },
+            move: {
                 enable: true,
-                value_area: 800,
+                speed: 3,
+                direction: "bottom",
+                random: false,
+                straight: true,
+                out_mode: "out",
+                bounce: false,
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "repulse"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
             },
+            modes: {
+                repulse: {
+                    distance: 100,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
         },
-        color: {
-            value: "#00ff00",
-        },
-        shape: {
-            type: "char",
-            character: {
-                value: ["0", "1"],
-            },
-        },
-        opacity: {
-            value: 0.7,
-            random: true,
-        },
-        size: {
-            value: 10,
-            random: true,
-        },
-        line_linked: {
-            enable: false,
-        },
-        move: {
-            enable: true,
-            speed: 1.5,
-            direction: "bottom",
-            straight: true,
-            out_mode: "out",
-        },
-    },
-    interactivity: {
-        events: {
-            onhover: {
-                enable: false,
-            },
-        },
-    },
-    retina_detect: true,
+        retina_detect: true
+    });
 });
 
-// GSAP Animation
-gsap.from(".content h1", {
-    duration: 2,
-    opacity: 0,
-    y: -50,
-    ease: "power2.out",
-});
+// Add glitch effect to main title
+function glitchEffect() {
+    const titles = document.querySelectorAll('h1');
+    titles.forEach(title => {
+        setInterval(() => {
+            const glitchText = title.textContent
+                .split('')
+                .map(char => {
+                    if (Math.random() < 0.1) {
+                        return String.fromCharCode(Math.random() * (127 - 33) + 33);
+                    }
+                    return char;
+                })
+                .join('');
+            title.textContent = glitchText;
+            
+            setTimeout(() => {
+                title.textContent = title.getAttribute('data-text') || title.textContent;
+            }, 50);
+        }, 2000);
+    });
+}
 
-// Anime.js Glitch Effect
-anime({
-    targets: ".content h1",
-    translateX: [10, -10, 10, -10, 0],
-    duration: 1000,
-    loop: true,
-    easing: "easeInOutSine",
+// Initialize glitch effect
+document.addEventListener('DOMContentLoaded', () => {
+    const titles = document.querySelectorAll('h1');
+    titles.forEach(title => {
+        title.setAttribute('data-text', title.textContent);
+    });
+    glitchEffect();
 });
