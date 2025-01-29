@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    particlesJS('particles-js', {
+    particlesJS("particles-js", {
         particles: {
             number: {
                 value: 80,
@@ -9,16 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             },
             color: {
-                value: '#00ff00' // Green color for particles
+                value: "#00ff00" // Green color for particles
             },
             shape: {
-                type: 'circle',
+                type: "circle",
                 stroke: {
                     width: 0,
-                    color: '#000000'
+                    color: "#000000" // Black stroke
                 },
                 polygon: {
                     nb_sides: 5
+                },
+                image: {
+                    src: "img/github.svg",
+                    width: 100,
+                    height: 100
                 }
             },
             opacity: {
@@ -44,17 +49,17 @@ document.addEventListener('DOMContentLoaded', function () {
             line_linked: {
                 enable: true,
                 distance: 150,
-                color: '#ffffff',
+                color: "#00ff00", // Green color for links
                 opacity: 0.4,
                 width: 1
             },
             move: {
                 enable: true,
                 speed: 6,
-                direction: 'none',
+                direction: "none",
                 random: false,
                 straight: false,
-                out_mode: 'out',
+                out_mode: "out",
                 bounce: false,
                 attract: {
                     enable: false,
@@ -64,15 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         interactivity: {
-            detect_on: 'canvas',
+            detect_on: "canvas",
             events: {
                 onhover: {
                     enable: true,
-                    mode: 'repulse'
+                    mode: "repulse"
                 },
                 onclick: {
                     enable: true,
-                    mode: 'push'
+                    mode: "push"
                 },
                 resize: true
             },
@@ -104,33 +109,31 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         retina_detect: true
     });
-});
 
-// Add glitch effect to main title
-function glitchEffect() {
-    const titles = document.querySelectorAll('h1');
-    titles.forEach(title => {
-        setInterval(() => {
-            const glitchText = title.textContent
-                .split('')
-                .map(char => {
-                    if (Math.random() < 0.1) {
-                        return String.fromCharCode(Math.random() * (127 - 33) + 33);
-                    }
-                    return char;
-                })
-                .join('');
-            title.textContent = glitchText;
-            
-            setTimeout(() => {
-                title.textContent = title.getAttribute('data-text') || title.textContent;
-            }, 50);
-        }, 2000);
-    });
-}
+    // Add glitch effect to main title
+    function glitchEffect() {
+        const titles = document.querySelectorAll('h1');
+        titles.forEach(title => {
+            setInterval(() => {
+                const glitchText = title.textContent
+                    .split('')
+                    .map(char => {
+                        if (Math.random() < 0.1) {
+                            return String.fromCharCode(Math.random() * (127 - 33) + 33);
+                        }
+                        return char;
+                    })
+                    .join('');
+                title.textContent = glitchText;
 
-// Initialize glitch effect
-document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(() => {
+                    title.textContent = title.getAttribute('data-text') || title.textContent;
+                }, 50);
+            }, 2000);
+        });
+    }
+
+    // Initialize glitch effect
     const titles = document.querySelectorAll('h1');
     titles.forEach(title => {
         title.setAttribute('data-text', title.textContent);
