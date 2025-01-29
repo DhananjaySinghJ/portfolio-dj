@@ -180,3 +180,8 @@ nav a:hover, nav a.active {
         grid-template-columns: 1fr;
     }
 }
+
+#particles-js {
+    height: 100%;
+    background: #262626;
+}
