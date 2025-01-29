@@ -181,7 +181,13 @@ nav a:hover, nav a.active {
     }
 }
 
+/* Particles.js Container */
 #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: #262626;
+    z-index: -1; /* Ensure it stays in the background */
+    background: #000; /* Fallback background color */
 }
