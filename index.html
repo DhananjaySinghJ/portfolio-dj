@@ -10,13 +10,36 @@
     <!-- Particles.js Container -->
     <div id="particles-js"></div>
 
-    <div class="content">
-        <h1>Welcome to the Matrix</h1>
+    <div class="content transparent-container">
+        <h1>hey, I'm</h1>
+        <h2>Dhananjay Singh</h2>
+        <p id="typewriter"></p>
     </div>
 
     <!-- Particles.js Library -->
     <script src="particles.js"></script>
     <!-- Initialize Particles.js -->
     <script src="scripts.js"></script>
+
+    <script>
+        const text = "An AI Specialist with a Master's degree in Artificial Intelligence from Queen Mary University of London. My journey in tech started as a Python Backend Engineer, where I honed my skills in building robust systems. Today, I specialize in crafting AI-driven solutions that bridge the gap between innovation and real-world impact. Fueled by a passion for solving complex problems, I thrive on designing intelligent systems that make life smarter, faster, and better. Whether it's optimizing processes, creating scalable machine learning models, or exploring the boundaries of AI, I'm driven by the excitement of shaping a more intelligent future. As Abraham Lincoln said 'The best way to predict the future is to create it.' Let's connect and build something remarkable together!. ";
+let index = 0;
+const typewriter = document.getElementById('typewriter');
+
+function type() {
+    if (index < text.length) {
+        typewriter.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 10);
+    } else {
+        typewriter.classList.remove('typing');
+    }
+}
+
+window.onload = () => {
+    typewriter.classList.add('typing');
+    type();
+};
+    </script>
 </body>
 </html>

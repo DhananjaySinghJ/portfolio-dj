@@ -6,21 +6,15 @@
 }
 
 body {
+    background-size: cover;
+    color: #00ff00; /* Green text color */
     font-family: 'Courier New', monospace;
-    background-color: #000;
-    color: #00ff00;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Matrix Background */
-.matrix-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 /* Content Layout */
@@ -28,110 +22,63 @@ body {
     position: relative;
     z-index: 1;
     padding: 2rem;
-    min-height: 100vh;
+    width: 80%; /* Set a fixed width */
+    min-height: 200px; /* Set a fixed height */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center; /* Center children vertically */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* White border with 50% opacity */
+    box-shadow: 5px -5px 1px rgba(221, 221, 221, 1); /* Add shadow similar to the provided HTML */
 }
 
-h1 {
+h1, h2 {
     font-size: 3rem;
     margin-bottom: 2rem;
     text-shadow: 0 0 10px #00ff00;
     animation: glitch 1s infinite;
 }
 
-/* Navigation */
-nav {
-    margin-bottom: 3rem;
+.transparent-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* White border with 50% opacity */
+    display: flex; /* Make the container size small and only cover the text */
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem; /* Adjust padding to fit the text */
+    box-shadow: 5px -5px 1px rgba(221, 221, 221, 1); /* Add shadow similar to the provided HTML */
 }
 
-nav a {
-    color: #00ff00;
-    text-decoration: none;
-    margin: 0 1rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid #00ff00;
-    transition: all 0.3s ease;
-}
-
-nav a:hover, nav a.active {
-    background: rgba(0, 255, 0, 0.1);
-    box-shadow: 0 0 10px #00ff00;
-}
-
-/* Main Content Styles */
-.main-content {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #00ff00;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-}
-
-/* Matrix Button */
-.matrix-button {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    margin: 1rem;
-    color: #00ff00;
-    text-decoration: none;
-    border: 1px solid #00ff00;
-    background: transparent;
-    transition: all 0.3s ease;
-}
-
-.matrix-button:hover {
-    background: rgba(0, 255, 0, 0.1);
-    box-shadow: 0 0 15px #00ff00;
-}
-
-/* Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.project-card {
-    padding: 1.5rem;
-    border: 1px solid #00ff00;
-    background: rgba(0, 0, 0, 0.8);
-    transition: all 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-}
-
-/* About Section */
-.about-section {
-    text-align: left;
-}
-
-.skills-list {
-    list-style-type: none;
-    padding: 1rem 0;
-}
-
-.skills-list li {
-    margin: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.skills-list li::before {
-    content: '>';
-    position: absolute;
-    left: 0;
-    color: #00ff00;
-}
 
 /* Animations */
+
+/* Typewriter effect */
+@keyframes typing {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+/* Typewriter effect */
+.typewriter {
+    border-right: 2px solid #00ff00; /* Cursor color */
+    white-space: pre-wrap;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.typewriter.typing {
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #00ff00 }
+}
+
+/* Glitch effect */
 @keyframes glitch {
     0% {
         text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
