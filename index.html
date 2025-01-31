@@ -3,43 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Portfolio</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
 </head>
 <body>
-    <!-- Particles.js Container -->
     <div id="particles-js"></div>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="intro">hey, I'm</p>
+                <h1 class="name">Dhananjay Singh</h1>
+                <p class="description">
+                    <span id="typewriter"></span>
+                </p>
+            </div>
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="dhananjay.jpg" alt="Dhananjay Singh">
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank">
+                        <img src="/path/to/github-logo.png" alt="GitHub">
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank">
+                        <img src="/path/to/linkedin-logo.png" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="content transparent-container">
-        <h1>hey, I'm</h1>
-        <h2>Dhananjay Singh</h2>
-        <p id="typewriter"></p>
-    </div>
-
-    <!-- Particles.js Library -->
     <script src="particles.js"></script>
-    <!-- Initialize Particles.js -->
     <script src="scripts.js"></script>
-
     <script>
-        const text = "An AI Specialist with a Master's degree in Artificial Intelligence from Queen Mary University of London. My journey in tech started as a Python Backend Engineer, where I honed my skills in building robust systems. Today, I specialize in crafting AI-driven solutions that bridge the gap between innovation and real-world impact. Fueled by a passion for solving complex problems, I thrive on designing intelligent systems that make life smarter, faster, and better. Whether it's optimizing processes, creating scalable machine learning models, or exploring the boundaries of AI, I'm driven by the excitement of shaping a more intelligent future. As Abraham Lincoln said 'The best way to predict the future is to create it.' Let's connect and build something remarkable together!. ";
-let index = 0;
-const typewriter = document.getElementById('typewriter');
-
-function type() {
-    if (index < text.length) {
-        typewriter.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 10);
-    } else {
-        typewriter.classList.remove('typing');
-    }
-}
-
-window.onload = () => {
-    typewriter.classList.add('typing');
-    type();
-};
+        new TypeIt("#typewriter", {
+            strings: "an AI Specialist with a Master's degree in Artificial Intelligence from Queen Mary University of London. My journey in tech started as a Python Backend Engineer, where I honed my skills in building robust systems. Today, I specialize in crafting AI-driven solutions that bridge the gap between innovation and real-world impact. Fueled by a passion for solving complex problems, I thrive on designing intelligent systems that make life smarter, faster, and better. Whether it's optimizing processes, creating scalable machine learning models, or exploring the boundaries of AI, I'm driven by the excitement of shaping a more intelligent future. As Abraham Lincoln said 'The best way to predict the future is to create it.' Let's connect and build something remarkable together!.",
+            speed: 50,
+            waitUntilVisible: true,
+            cursor: true,
+            cursorSpeed: 1000,
+            cursorChar: "|"
+        }).go();
     </script>
 </body>
 </html>
