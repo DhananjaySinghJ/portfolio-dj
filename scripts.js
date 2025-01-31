@@ -110,33 +110,4 @@ document.addEventListener('DOMContentLoaded', function () {
         retina_detect: true
     });
 
-    // Add glitch effect to main title
-    function glitchEffect() {
-        const titles = document.querySelectorAll('h1');
-        titles.forEach(title => {
-            setInterval(() => {
-                const glitchText = title.textContent
-                    .split('')
-                    .map(char => {
-                        if (Math.random() < 0.1) {
-                            return String.fromCharCode(Math.random() * (127 - 33) + 33);
-                        }
-                        return char;
-                    })
-                    .join('');
-                title.textContent = glitchText;
-
-                setTimeout(() => {
-                    title.textContent = title.getAttribute('data-text') || title.textContent;
-                }, 50);
-            }, 2000);
-        });
-    }
-
-    // Initialize glitch effect
-    const titles = document.querySelectorAll('h1');
-    titles.forEach(title => {
-        title.setAttribute('data-text', title.textContent);
-    });
-    glitchEffect();
 });
