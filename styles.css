@@ -34,11 +34,22 @@ body {
     box-shadow: 15px -15px 1px rgba(221, 221, 221, 1);
     gap: 2rem;
     margin: 0 auto;
+    z-index: 3;
 }
 
 .hero-text {
     flex: 0.6;
     padding-right: 2rem;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: black;
 }
 
 .intro {
