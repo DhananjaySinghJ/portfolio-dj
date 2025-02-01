@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 2rem 0;
     position: relative;
 }
 
@@ -25,21 +25,25 @@ body {
     flex-wrap: wrap;
     align-items: center;
     background: rgba(0, 0, 0, 0.8);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 12px;
-    padding: 0 4rem;
-    max-width: 1200px;
+    padding: 0rem 3rem;
+    max-width: 1000px;
     width: 90%;
-    aspect-ratio: 16/9;
-    box-shadow: 15px -15px 1px rgba(221, 221, 221, 1);
-    gap: 2rem;
+    aspect-ratio: 21/9;
     margin: 0 auto;
     z-index: 3;
+    min-height: auto;
+    overflow: hidden;
 }
 
 .hero-text {
     flex: 0.6;
-    padding-right: 2rem;
+    padding-right: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
 }
 
 #particles-js {
@@ -53,20 +57,25 @@ body {
 }
 
 .intro {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
+    position: relative;
 }
 
 .name {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
     text-shadow: 0 0 10px #00ff00;
     animation: glitch 1s infinite;
+    position: relative;
 }
 
 .description {
+    position: relative;
+    overflow-y: auto;
+    margin-top: 1rem;
+    padding-right: 1rem;
     font-size: 0.9rem;
-    line-height: 1.6;
 }
 
 .profile-section {
@@ -78,7 +87,8 @@ body {
 
 .profile-image img {
     width: 100%;
-    max-width: 300px;
+    max-height: 300px;
+    max-width: 250px;
     border-radius: 12px;
     margin-bottom: 1rem;
 }
@@ -90,8 +100,13 @@ body {
 }
 
 .social-links img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+}
+
+#typewriter {
+    display: block;
+    line-height: 1.6;
 }
 
 /* Glitch effect */
