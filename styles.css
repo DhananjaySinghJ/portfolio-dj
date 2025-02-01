@@ -17,7 +17,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
-    position: relative;
+    position: relative; /* Add this */
+    z-index: 2;
 }
 
 .hero-content {
@@ -107,6 +108,57 @@ body {
 #typewriter {
     display: block;
     line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    z-index: 10;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 5rem;
+}
+
+.navbar ul li {
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: #00ff00;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* .navbar ul li a.active {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+} */
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
 }
 
 /* Glitch effect */

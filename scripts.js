@@ -111,3 +111,32 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+// // Get all navigation links
+// const navLinks = document.querySelectorAll('.nav-link');
+
+// // Add click event listeners to each link
+// navLinks.forEach(link => {
+//     link.addEventListener('click', function() {
+//         // Remove active class from all links
+//         navLinks.forEach(l => l.classList.remove('active'));
+//         // Add active class to clicked link
+//         this.classList.add('active');
+//     });
+// });
+
+// // Set About as active by default if no hash in URL
+// window.addEventListener('load', function() {
+//     const hash = window.location.hash;
+//     if (!hash) {
+//         const aboutLink = document.querySelector('a[href="./particles.html"]');
+//         navLinks.forEach(l => l.classList.remove('active'));
+//         aboutLink.classList.add('active');
+//     } else {
+//         const activeLink = document.querySelector(`a[href="${hash}"]`);
+//         if (activeLink) {
+//             navLinks.forEach(l => l.classList.remove('active'));
+//             activeLink.classList.add('active');
+//         }
+//     }
+// });
