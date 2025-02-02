@@ -41,12 +41,27 @@
         </div>
     </section>
 
+    <!-- New content sections -->
+<section id="about" class="content-section">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>Lorem Ipsum</p>
+    </div>
+</section>
+
+<section id="projects" class="content-section">
+    <div class="container">
+        <h2>Projects</h2>
+        <p>Lorem Ipsum</p>
+    </div>
+</section>
+
     <!-- Navbar -->
     <nav class="navbar">
         <ul>
-            <li><a href="./about.html" class="nav-link">About</a></li>
-            <li><a href="./projects.html" class="nav-link">Projects</a></li>
-            <li><a href="./particles.html" class="nav-link active">Particles</a></li>
+            <li><a class="nav-link active" data-section="about">About</a></li>
+            <li><a class="nav-link" data-section="projects">Projects</a></li>
+            <li><a href="particles.html">Particles</a></li>
         </ul>
     </nav>
     
@@ -59,7 +74,7 @@
             speed: 1,
             waitUntilVisible: true,
             cursor: true,
-            cursorSpeed: 750,
+            cursorSpeed: 1000,
             cursorChar: "|"
         }).go();
     </script>

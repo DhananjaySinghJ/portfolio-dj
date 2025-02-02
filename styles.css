@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     margin: 0;
     padding: 0;
@@ -5,11 +6,21 @@ body {
     color: #00ff00;
     font-family: 'Space Mono', monospace;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow-x: hidden;
 }
 
+/* Particles */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: black;
+}
+
+/* Hero Section */
 .hero {
     width: 100%;
     min-height: 100vh;
@@ -17,7 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
-    position: relative; /* Add this */
+    position: relative;
     z-index: 2;
 }
 
@@ -28,13 +39,12 @@ body {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 12px;
-    padding: 0rem 3rem;
+    padding: 3rem;
     max-width: 1000px;
     width: 90%;
     aspect-ratio: 21/9;
     margin: 0 auto;
-    z-index: 3;
-    min-height: auto;
+    position: relative;
     overflow: hidden;
 }
 
@@ -47,16 +57,6 @@ body {
     min-height: 350px;
 }
 
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: black;
-}
-
 .intro {
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -64,7 +64,7 @@ body {
 }
 
 .name {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
     text-shadow: 0 0 10px #00ff00;
     animation: glitch 1s infinite;
@@ -77,8 +77,10 @@ body {
     margin-top: 1rem;
     padding-right: 1rem;
     font-size: 0.9rem;
+    line-height: 1.6;
 }
 
+/* Profile Section */
 .profile-section {
     flex: 0.4;
     display: flex;
@@ -103,20 +105,50 @@ body {
 .social-links img {
     width: 20px;
     height: 20px;
+    transition: transform 0.3s ease;
 }
 
-#typewriter {
+.social-links img:hover {
+    transform: scale(1.2);
+}
+
+/* Content Sections */
+.content-section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background: black;
+    color: #00ff00;
+    display: none;
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.content-section.active {
     display: block;
-    line-height: 1.6;
 }
 
-/* Navbar Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* Navbar */
 .navbar {
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
     padding: 1rem 0;
     position: absolute;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     z-index: 10;
 }
@@ -130,38 +162,22 @@ body {
     gap: 5rem;
 }
 
-.navbar ul li {
-    margin: 0;
-}
-
 .navbar ul li a {
     color: #00ff00;
     text-decoration: none;
     font-size: 1.5rem;
     text-transform: uppercase;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
-.navbar ul li a:hover {
+.navbar ul li a:hover, 
+.navbar ul li a.active {
     color: #ff00ff;
     text-shadow: 0 0 10px #ff00ff;
 }
 
-/* .navbar ul li a.active {
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff;
-} */
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-}
-
-/* Glitch effect */
+/* Glitch Animation */
 @keyframes glitch {
     0% {
         text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
@@ -193,17 +209,101 @@ body {
     }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     .hero-content {
-        flex-direction: column-reverse;
+        flex-direction: column;
         padding: 2rem;
+        aspect-ratio: auto;
+        height: auto;
+        margin-bottom: 60px;
+    }
+
+    .hero-text {
+        flex: 1;
+        padding-right: 0;
+        margin-top: 2rem;
+        min-height: auto;
+        order: 2; /* Change order to appear after profile section */
+    }
+
+    .profile-section {
+        flex: 1;
+        width: 100%;
+        order: 1; /* Change order to appear first */
     }
 
     .profile-image img {
         max-width: 200px;
+        margin-top: 2rem;
+    }
+
+    .navbar {
+        position: fixed; /* Change to fixed position */
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.9); /* Make background more solid */
+        padding: 0.5rem 0;
+        width: 100%;
+        z-index: 100; /* Ensure navbar stays on top */
+    }
+
+    .navbar ul {
+        flex-direction: row; /* Keep navbar items in a row */
+        justify-content: space-around;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .navbar ul li a {
+        font-size: 1rem; /* Reduce font size for mobile */
+        padding: 0.5rem;
     }
 
     .name {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .intro {
+        text-align: center;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .social-links {
+        margin: 1rem 0 2rem 0;
+    }
+
+    /* Adjust content sections for mobile */
+    .content-section {
+        padding-bottom: 5rem; /* Add padding to prevent content from being hidden by navbar */
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    .navbar ul li a {
+        font-size: 0.9rem;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+    }
+
+    .profile-image img {
+        max-width: 180px;
     }
 }
